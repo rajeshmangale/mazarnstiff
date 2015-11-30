@@ -1,0 +1,21 @@
+<ripple
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+     android:color="?android:colorAccent">
+
+    <!-- Note: <ripple> acts like a layer-list -->
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <!-- This color is not displayed in any way -->
+            <solid android:color="#AED581" />
+        </shape>
+    </item>
+
+    <!-- This is the border -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="3dp"/>
+            <!-- Use your border color in place of #f00 -->
+            <solid android:color="#FFFFFF"/>
+        </shape>
+    </item>
+ </ripple>

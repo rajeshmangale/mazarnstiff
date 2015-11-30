@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tiffin</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="name1">T    i    f   f   E   a   t</string>
+    <string name="trial">Trial</string>
+    <string name="scheduled">Scheduled Order</string>
+    <string name="quick">Quick Order</string>
+    <string name="title_activity_select_type">SelectType</string>
+    <string name="title_activity_first_time_use">FirstTimeUse</string>
+    <string name="title_activity_list_of_meals">ListOfMeals</string>
+    <string name="name1Offers">ABC Tiffin offers:</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_payment">Payment Details</string>
+    <string name="title_activity_scheduled_user">ScheduledUser</string>
+    <string name="title_activity_nevigation_drawer">NevigationDrawer</string>
+    <string name="action_example">Example action</string>
+    <string name="title_activity_tabs">Tabs</string>
+    <string name="title_activity_tab">TabActivity</string>
+    <string name="title_activity_drawer">TiffEat</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="nav_item_notification">Home</string>
+    <string name="nav_item_quickorder">Quick Order</string>
+    <string name="nav_item_terms">Terms and Conditions</string>
+    <string name="nav_item_contactus">Contact Us</string>
+    <string name="nav_item_aboutus">About Us</string>
+    <string name="nav_item_logout">Logout</string>
+
+    <!-- navigation drawer item labels -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_notification</item>
+        <item>@string/nav_item_quickorder</item>
+        <item>@string/nav_item_terms</item>
+        <item>@string/nav_item_aboutus</item>
+        <item>@string/nav_item_contactus</item>
+        <item>@string/nav_item_logout</item>
+    </string-array>
+
+    <string name="title_activity_first_time_used_adapter">FirstTimeUsedAdapter</string>
+    <string name="title_activity_list_of_meals_adapter">ListOfMealsAdapter</string>
+    <string name="title_activity_scheduled_order">ScheduledOrder</string>
+    <string name="title_activity_quick_order_main_screen">QuickOrderMainScreen</string>
+    <string name="title_activity_quick_order_screen">QuickOrderScreen</string>
+    <string name="title_activity_add_to_wallet">AddToWallet</string>
+    <string name="title_activity_alert_box">AlertBox</string>
+
+</resources>
