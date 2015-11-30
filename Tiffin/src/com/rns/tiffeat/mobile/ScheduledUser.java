@@ -31,6 +31,7 @@ import android.widget.Toast;
 import com.rns.tiffeat.mobile.asynctask.GetMealMenuAsyncTask;
 import com.rns.tiffeat.mobile.asynctask.GetNewOrderAreaAsynctask;
 import com.rns.tiffeat.mobile.asynctask.ScheduleCancelOrderTask;
+import com.rns.tiffeat.mobile.util.CustomerUtils;
 import com.rns.tiffeat.web.bo.domain.Customer;
 import com.rns.tiffeat.web.bo.domain.CustomerOrder;
 import com.rns.tiffeat.web.bo.domain.Meal;
@@ -62,8 +63,11 @@ public class ScheduledUser extends Fragment {
 	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) 
+	{
 		super.onCreate(savedInstanceState);
+		FragmentManager fragmentManager = getFragmentManager();
+		CustomerUtils.clearFragmentStack(fragmentManager); 
 		orderValidation();
 
 	}
@@ -403,23 +407,23 @@ public class ScheduledUser extends Fragment {
 		customerOrder1 = customer.getScheduledOrder().get(0);
 		tiffmenu.setText("Todays " + customerOrder1.getMealType() + " Menu of "
 				+ customerOrder1.getMeal().getVendor().getName() + " :");
-		if (customerOrder1.getStatus() == null
-				|| customerOrder1.getStatus()
-				.equals(MealStatus.PREPARE))
+		if (customerOrder1.getMealStatus() == null
+				|| MealStatus.PREPARE
+				.equals(customerOrder1.getStatus()))
 			tiffstatus.setText("Your " + customerOrder1.getMealType()
 					+ " is yet to be cooked. You can cancel your order.");
 		else
 			tiffstatus.setText("Your " + customerOrder1.getMealType()
 					+ " is in "
-					+ customerOrder1.getStatus().toString()
+					+ customerOrder1.getMealStatus().toString()
 					+ " stage.");
-		if (!customerOrder1.getStatus().equals(MealStatus.PREPARE)) {
+		if (!MealStatus.PREPARE.equals(customerOrder1.getMealStatus())) {
 			switchorder.setVisibility(View.GONE);
 
 			cancelorder.setVisibility(View.GONE);
 		}
 
-		if (customerOrder1.getMealType().equals(MealType.DINNER))
+		if (MealType.DINNER.equals(customerOrder1.getMealStatus()))
 			edit.setText("Order Lunch");
 		else if (customerOrder1.getMealType().equals(MealType.LUNCH))
 			edit.setText("Order Dinner");
@@ -444,8 +448,8 @@ public class ScheduledUser extends Fragment {
 				+ " Menu of " + customerOrder12.getMeal().getVendor().getName()
 				+ " :");
 		if (customerOrder12.getStatus() == null
-				|| customerOrder12.getStatus()
-				.equals(MealStatus.PREPARE))
+				|| MealStatus.PREPARE
+				.equals(customerOrder12.getStatus()))
 			tiffcard2status.setText("Your " + customerOrder12.getMealType()
 					+ " is yet to be cooked. You can cancel your order.");
 		else
@@ -454,7 +458,7 @@ public class ScheduledUser extends Fragment {
 					+ customerOrder12.getMeal().toString()
 					+ " stage.");
 
-		if (!customerOrder12.getStatus().equals(MealStatus.PREPARE)) {
+		if (!MealStatus.PREPARE.equals( customerOrder12.getMealStatus())) {
 			card2switchorder.setVisibility(View.GONE);
 
 			card2cancelorder.setVisibility(View.GONE);
@@ -484,12 +488,12 @@ public class ScheduledUser extends Fragment {
 
 		Fragment fragment = null;
 		fragment = new FirstTimeUse(customerOrder);
-
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager
-				.beginTransaction();
-		fragmentTransaction.replace(R.id.container_body, fragment);
-		fragmentTransaction.commit();
+		CustomerUtils.nextFragment(fragment, getFragmentManager(), true);
+//		FragmentManager fragmentManager = getFragmentManager();
+//		FragmentTransaction fragmentTransaction = fragmentManager
+//				.beginTransaction();
+//		fragmentTransaction.replace(R.id.container_body, fragment);
+//		fragmentTransaction.commit();
 	}
 
 	void showdialog() {

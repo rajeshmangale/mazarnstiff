@@ -66,6 +66,8 @@ public class QuickOrderHomeScreen extends Fragment implements AndroidConstants
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
+		FragmentManager fragmentManager = getFragmentManager();
+		CustomerUtils.clearFragmentStack(fragmentManager); 
 	}
 
 

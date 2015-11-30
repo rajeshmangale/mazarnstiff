@@ -47,7 +47,7 @@ public class CustomerUtils implements AndroidConstants{
 	{
 
 
-//		for(int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {    
+//		for(int i = 0; i < fragmentManager.getBackStackEntryCount()-1; ++i) {    
 //			fragmentManager.popBackStack();
 		
 	fragmentManager.popBackStack(null,fragmentManager.POP_BACK_STACK_INCLUSIVE);	
